@@ -60,7 +60,7 @@ namespace CGame
 
         }
 
-        internal Cell? GetCell (int y, int x)
+        internal Cell? GetCell (int x, int y)
         {
             return (x < 0 || x >= Width || y < 0 || y >= Height) ? null : _cells[y, x];
         }
