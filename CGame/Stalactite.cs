@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CGame
 {
-    internal class Wall : Decoration
-
+    internal class Stalactite : Decoration
     {
-        public Wall(Cell cell) : base(cell, "■ ")
+        public Stalactite(Cell cell) : base(cell, "▼ ")
         {
             Color = ConsoleColor.DarkGray;
         }

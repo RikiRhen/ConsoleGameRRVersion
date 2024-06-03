@@ -22,11 +22,11 @@ namespace CGame
 
             _cells = new Cell[height, width];
 
-            for (int y = 0; y < height; y++)
+            for (int x = 0; x < height; x++)
             {
-                for (int x = 0; x < width; x++)
+                for (int y = 0; y < width; y++)
                 {
-                    _cells[y, x] = new Cell(y, x);
+                    _cells[x, y] = new Cell(x, y);
                 }
             }
 
@@ -34,20 +34,29 @@ namespace CGame
             for (int y = 0; y < width; y++)
             {
                 // Kolumnerna längst till vänster och höger
-                Wall wall = new Wall(GetCell(y, 0)!);
+                Wall wall = new Wall(GetCell(0, y)!);
                 Decorations.Add(wall);
-                wall = new Wall(GetCell(y, height-1)!);
+                wall = new Wall(GetCell(height -1 , y)!);
                 Decorations.Add(wall);
             }
 
             for (int x = 0; x < height; x++)
             {
                 //Första och sista raden
-                Wall wall = new Wall(GetCell(0, x)!);
+                Wall wall = new Wall(GetCell(x, 0)!);
                 Decorations.Add(wall);
-                wall = new Wall(GetCell(height-1, x)!);
+                wall = new Wall(GetCell(x, width - 1)!);
                 Decorations.Add(wall);
             }
+
+            //Decorating arena
+            Decorations.Add(new Stalagmite(GetCell(5, 7)!));
+            Decorations.Add(new Stalactite(GetCell(4, 7)!));
+            Decorations.Add(new Stalagmite(GetCell(11, 19)!));
+            Decorations.Add(new Stalagmite(GetCell(15, 6)!));
+            Decorations.Add(new Stalagmite(GetCell(2, 4)!));
+            Decorations.Add(new Stalactite(GetCell(19, 20)!));
+            Decorations.Add(new Stalagmite(GetCell(20, 20)!));
 
         }
 
