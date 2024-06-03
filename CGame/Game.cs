@@ -78,6 +78,13 @@ internal class Game
                         drawable = creature;
                     }
                 }
+                foreach (Decoration decoration in _map.Decorations)
+                {
+                    if (decoration.Cell == drawable)
+                    {
+                        drawable = decoration;
+                    }
+                }
 
                 Console.ForegroundColor = drawable.Color;
                 Console.Write(drawable.Symbol);

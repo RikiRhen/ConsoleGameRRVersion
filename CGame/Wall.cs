@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace CGame
 {
-    internal class Goblin : Creature
+    internal class Wall : Decoration
+
     {
-        public Goblin (Cell cell) : base (cell, "G ")
+        public Wall(Cell cell) : base(cell, "■ ")
         {
-            Color = ConsoleColor.Red;
+            Color = ConsoleColor.White;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace CGame
         public int Height { get; }
 
         public List<Creature> Creatures { get; } = new List<Creature>();
+        public List<Decoration> Decorations { get; } = new List<Decoration>();
 
         public Map(int  width, int height)
         {
@@ -28,6 +29,26 @@ namespace CGame
                     _cells[y, x] = new Cell(y, x);
                 }
             }
+
+            //Kapsla in arenan med väggar
+            for (int y = 0; y < width; y++)
+            {
+                // Kolumnerna längst till vänster och höger
+                Wall wall = new Wall(GetCell(y, 0)!);
+                Decorations.Add(wall);
+                wall = new Wall(GetCell(y, height-1)!);
+                Decorations.Add(wall);
+            }
+
+            for (int x = 0; x < height; x++)
+            {
+                //Första och sista raden
+                Wall wall = new Wall(GetCell(0, x)!);
+                Decorations.Add(wall);
+                wall = new Wall(GetCell(height-1, x)!);
+                Decorations.Add(wall);
+            }
+
         }
 
         internal Cell? GetCell (int y, int x)
