@@ -1,4 +1,5 @@
 ﻿namespace CGame
+//Alt. symboler: ■ ◘ █ ▲ ◄ × ‼ Þ ○ x ♣ . Walls = ■, Player = ☻, Enemy = ‼, Corpse = ×, Lever = Þ, Gate/Door = ◘
 {
     public class Cell : IDrawable
     {

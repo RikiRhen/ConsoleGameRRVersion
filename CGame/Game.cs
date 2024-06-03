@@ -5,6 +5,7 @@ internal class Game
 {
     private Map _map = null!;
     private Player _player = null!;
+    private Goblin _gobbo = null!;
     public Game()
     {
     }
@@ -88,10 +89,12 @@ internal class Game
 
     private void Initialize()
     {
-        _map = new Map(width: 10, height: 10);
-        Cell? playerCell = _map.GetCell(0, 0);
+        _map = new Map(width: 22, height: 22);
+        Cell? playerCell = _map.GetCell(1, 1);
         _player = new Player(playerCell);
+        _gobbo = new Goblin(_map.GetCell(9, 9));
         _map.Creatures.Add(_player);
+        _map.Creatures.Add(_gobbo);
     }
 
 }
